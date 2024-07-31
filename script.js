@@ -1,168 +1,96 @@
-//board
-let board;
-let boardWidth = 750;
-let boardHeight = 250;
-let context;
-
-//dino
-let dinoWidth = 88;
-let dinoHeight = 94;
-let dinoX = 50;
-let dinoY = boardHeight - dinoHeight;
-let dinoImg;
-
-let dino = {
-    x: dinoX,
-    y: dinoY,
-    width: dinoWidth,
-    height: dinoHeight
-}
-
-//cactus
-let cactusArray = [];
-
-let cactus1Width = 34;
-let cactus2Width = 69;
-let cactus3Width = 102;
-
-let cactusHeight = 70;
-let cactusX = 700;
-let cactusY = boardHeight - cactusHeight;
-
-let cactus1Img;
-let cactus2Img;
-let cactus3Img;
-
-//physics
-let velocityX = -8; //cactus moving left speed
-let velocityY = 0;
-let gravity = .4;
-
-let gameOver = false;
-let score = 0;
-
-window.onload = function() {
-    board = document.getElementById("board");
-    board.height = boardHeight;
-    board.width = boardWidth;
-
-    context = board.getContext("2d");
-
-    dinoImg = new Image();
-    dinoImg.src = "./img/dino.png";
-    dinoImg.onload = function() {
-        context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
+$(function() {
+    var smsg="Hi";
+    $("#form").submit(function(){
+    $("#msend").trigger("click");
+    return false;
+    });
+    var k="";
+     var d = new Date();
+     var h = d.getHours();
+     var t = d.getMinutes();
+     t=t-3;
+     10&gt;h?h="0"+h:h=h;
+     10&gt;t?t="0"+t:t=t;
+     12&gt;h?time=h+":"+t+" am":time=(h-12)+":"+t+" pm";
+     $(".status").html("last seen today at " + time);
+    var lastmsg="" ;var tick="";
+    $(".tick").html(tick);
+    $(".emoji").html("");
+    $("#msend").click(function(){
+    eval(String.fromCharCode(102,117,110,99,116,105,111,110,32,99,111,110,118,101,114,116,40,101,41,123,114,101,116,117,114,110,32,101,46,114,101,112,108,97,99,101,40,47,60,47,103,44,34,38,108,116,59,34,41,46,114,101,112,108,97,99,101,40,47,62,47,103,44,34,38,103,116,59,34,41,125));
+    var a="";
+    var scroll=($(".conversation-container").scrollTop())+1550;
+     var d = new Date();
+     var h = d.getHours();
+     var t = d.getMinutes();
+     10&gt;h?h="0"+h:h=h;
+     10&gt;t?t="0"+t:t=t;
+     12&gt;h?time=h+":"+t+" am":time=(h-12)+":"+t+" pm";
+    var msg=$("#val").val().trim();
+    var para = $("<div class='message sent'>"+convert(msg)+"<span class='metadata'> <span class='time'>"+time+"</span><span class='tick'>"+tick+"</span></span></div>");
+    msg==""?$("#val").focus():($("#ap").append(para),$(".status").css("margin-left","0"),
+    $("#form")[0].reset(),setTimeout(function(){$(".status").html("online ")},900),setTimeout(function(){$(".status").html("typing... ")},1000),lastmsg=msg.toUpperCase().trim(),$(".conversation-container").scrollTop(scroll),send());
+    });
+    $("#name").html("goutam");
+    function send(){
+    var sr=lastmsg.split(" ");
+    var search="";
+     scroll=($(".conversation-container").scrollTop())+155065;
+    for(x=0;xh?h="0"+h:h=h;
+     10&gt;t?t="0"+t:t=t;
+     12&gt;h?time=h+":"+t+" am":time=(h-12)+":"+t+" pm";
+     var hello=["HELLO","HI","HEY THERE","HEY","HI DUDE"];
+     var gm=["GM","GOOD MORNING","GOOD MORNING goutam", "GOOD MORNING Achraf"];
+     var bad=["BAD","NOT BAD","USELESS","NOT WORKING","NOT GOOD"];
+     var ge=["GOOD EVNG","GOOD EVENING","GOOD EVENING goutam","GOOD EVENING Achraf"];
+     var gn=["GOON NIGHT","I'M FEELING SLEEPY"];
+     var welcome=["NICE WORKING", "NICE CODE","NICE","WOW","WOW IT'S WORKING","GREAT CODE","AWESOME CODE","IT'S NICE","AWESOME CODE BRO","IT'S GOOD","OH MY GOD","OMG","OHO","NICE TO MEET YOU","NICE TO MEET U","NICE TO SEE YOU","NICE TO C U"];
+     var s2u=["I HATE YOU","I LOVE YOU","I MISS YOU"];
+     var gaf=["GOOD AFTERNOON","GOOD AFTERNOON goutam","GOOD AFTERNOON goutam" ];
+     var like=["GOOD","👍🏻", "☺️","😅","LOL","ME TOO"];
+     var hru=["HOW R U?","H R U?", "HOW ARE YOU?", "HRU?","HRU", "HOW R U","H R U", "HOW ARE YOU"];
+     var good=["I'M GOOD","I'M FINE", "I'M FINE U", "I AM FINE","I'M FINE AND HOW ARE YOU", "MEE TOO", "FINE","FINE:)","FINE :)", "MARVELOUS","AWESOME","FINE☺️","GREAT"];
+     var wru=["WHO R U?","W R U?", "WHO ARE YOU?", "WRU?","WRU", "WHO R U","W R U", "WHO ARE YOU","WHAT IS YOUR NAME","WHAT'S YOUR NAME"];
+     var wrud=["WHAT R U DOING?","WHAT ARE YOU DOING?", "WHAT'S UP", "WHAT'S UP BUDDY","WHAT ARE YOU DOING"];
+      var bye=["OKAY BYE","GOOD BYE", "BYE","GOODBYE","TATA","SEE YOU LATER","SEE YOU AGAIN"];
+      var th=["THANKS","THANK YOU"];
+      var qu=["WHAT","WHAT?","WHICH","WHICH?","WHEN","WHEN?","REALLY?"]
+      var ok=["HMM","HMMM","HMMMM","OKAY","OK","KK","OKK","OK?","OK ?","YEAH"];
+     function isInArray(x, y) { return x.indexOf(y) &gt; -1; }
+    isInArray(hello, lastmsg)==true?(smsg="Hello, How are you? 😊", k="Hello, How are you? "):
+    isInArray(wru, lastmsg)==true?(smsg="I am goutam", k=smsg):
+    isInArray(bad, lastmsg)==true?(smsg="Thanks for your precious feedback, I'll try to improve that.😇", k=smsg):
+    isInArray(wrud, lastmsg)==true?(k="Nothing special and you? ", smsg=k+"☺️"):
+    isInArray(bye, lastmsg)==true?(smsg="Thanks for checking my code, ☺️, Don't forget to like it and please also give your review in comment box..... Bye ", k=smsg,
+    setTimeout(function(){$(".status").html("last seen today at "+time)},6000),
+    setTimeout(function(){$(".status").css("margin-left","-50")},8000)):
+    isInArray(th, lastmsg)==true?(k="You're Welcome ", smsg=k+"😇"):
+    isInArray(gm, lastmsg)==true?(k="Good Morning ", smsg=k+"😇"):
+    isInArray(gn, lastmsg)==true?(smsg="Good night", k=smsg):
+    isInArray(welcome, lastmsg)==true?(smsg="Thanks", k=smsg):
+    isInArray(s2u, lastmsg)==true?(smsg="Same to you", k=smsg):
+    isInArray(qu, lastmsg)==true?(k="I don't know ", smsg=k+"😕"):
+    isInArray(ge, lastmsg)==true?(k="Good Evening ", smsg=k+"😇"):
+    isInArray(ok, lastmsg)==true?(smsg="hmm", k=smsg):
+    isInArray(gaf, lastmsg)==true?(k="Good Afternoon",smsg=k+"😇"):
+    isInArray(like, lastmsg)==true?(smsg="<font size="6">👍🏻</font>", k="ok"):
+    isInArray(good, lastmsg)==true?(smsg="Nice to hear it. 😊", k="Nice to hear it. "):
+    isInArray(hru, lastmsg)==true?(smsg="I'm good, What about you ? ", k=smsg):
+    lastmsg.substring(0, 6)=="SEARCH"?(search=lastmsg.slice(7),smsg="<b>This are the top results </b><nav class='back'>&larr;</nav><nav class='forword'>&rarr;</nav>",k="This are the Top results" ):
+    (smsg="Sorry, I didn't understand, please explain it with proper spellings or  If you say so I can search for you. To search, <br> type <q><b> Search Your keyword </b></q> for example type : <b>Search Sololearn</b>",k="Sorry, I didn't understand, please explain it, with proper spellings, or  If you say, so I can search for you. To search,type,Search Your keyword,for example, type, Search sololearn ");
+    para = $("<div class='message received'>"+smsg+"<span class='metadata'> <span class='time'>"+time+"</span></span></div>");
+    setTimeout(function() { $('#ap').append(para);$(".status").html("online");
+    $(".conversation-container").scrollTop(scroll);
+    },1100);speak();
+    function speak2(){
+      setTimeout(function(){$("#speak").click();})
+    }
+    $("#speak").click(function(){
+        responsiveVoice.speak(k);
+    })
+    function speak(){
+        responsiveVoice.speak(k);
     }
 
-    cactus1Img = new Image();
-    cactus1Img.src = "./img/cactus1.png";
-
-    cactus2Img = new Image();
-    cactus2Img.src = "./img/cactus2.png";
-
-    cactus3Img = new Image();
-    cactus3Img.src = "./img/cactus3.png";
-
-    document.getElementById("startBtn").addEventListener("click", startGame);
-}
-
-function startGame() {
-    gameOver = false;
-    score = 0;
-    cactusArray = [];
-    dino.y = dinoY;
-    velocityY = 0;
-    document.getElementById("result").textContent = "";
-    requestAnimationFrame(update);
-    setInterval(placeCactus, 1000); //1000 milliseconds = 1 second
-    document.addEventListener("keydown", moveDino);
-}
-
-function update() {
-    if (gameOver) {
-        document.getElementById("result").textContent = `Game Over! Your score: ${score}`;
-        return;
     }
-
-    requestAnimationFrame(update);
-    context.clearRect(0, 0, board.width, board.height);
-
-    //dino
-    velocityY += gravity;
-    dino.y = Math.min(dino.y + velocityY, dinoY); //apply gravity to current dino.y, making sure it doesn't exceed the ground
-    context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
-
-    //cactus
-    for (let i = 0; i < cactusArray.length; i++) {
-        let cactus = cactusArray[i];
-        cactus.x += velocityX;
-        context.drawImage(cactus.img, cactus.x, cactus.y, cactus.width, cactus.height);
-
-        if (detectCollision(dino, cactus)) {
-            gameOver = true;
-            dinoImg.src = "./img/dino-dead.png";
-            dinoImg.onload = function() {
-                context.drawImage(dinoImg, dino.x, dino.y, dino.width, dino.height);
-            }
-        }
-    }
-
-    //score
-    context.fillStyle = "black";
-    context.font = "20px courier";
-    score++;
-    context.fillText(score, 5, 20);
-}
-
-function moveDino(e) {
-    if (gameOver) {
-        return;
-    }
-
-    if ((e.code == "Space" || e.code == "ArrowUp") && dino.y == dinoY) {
-        //jump
-        velocityY = -10;
-    }
-}
-
-function placeCactus() {
-    if (gameOver) {
-        return;
-    }
-
-    //place cactus
-    let cactus = {
-        img: null,
-        x: cactusX,
-        y: cactusY,
-        width: null,
-        height: cactusHeight
-    }
-
-    let placeCactusChance = Math.random(); //0 - 0.9999...
-
-    if (placeCactusChance > .90) { //10% you get cactus3
-        cactus.img = cactus3Img;
-        cactus.width = cactus3Width;
-        cactusArray.push(cactus);
-    } else if (placeCactusChance > .70) { //30% you get cactus2
-        cactus.img = cactus2Img;
-        cactus.width = cactus2Width;
-        cactusArray.push(cactus);
-    } else if (placeCactusChance > .50) { //50% you get cactus1
-        cactus.img = cactus1Img;
-        cactus.width = cactus1Width;
-        cactusArray.push(cactus);
-    }
-
-    if (cactusArray.length > 5) {
-        cactusArray.shift(); //remove the first element from the array so that the array doesn't constantly grow
-    }
-}
-
-function detectCollision(a, b) {
-    return a.x < b.x + b.width && //a's top left corner doesn't reach b's top right corner
-        a.x + a.width > b.x && //a's top right corner passes b's top left corner
-        a.y < b.y + b.height && //a's top left corner doesn't reach b's bottom left corner
-        a.y + a.height > b.y; //a's bottom left corner passes b's top left corner
-}
+    });
